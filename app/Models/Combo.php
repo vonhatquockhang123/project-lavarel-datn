@@ -14,4 +14,8 @@ class Combo extends Model
     {
         return $this->belongsTo(NhaXuatBan::class);
     }
+    public function chiTietDonHang()
+    {
+        return $this->hasMany(CTDonHang::class, 'combo_id');
+    }
 }

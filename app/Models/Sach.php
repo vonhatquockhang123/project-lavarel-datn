@@ -22,4 +22,8 @@ class Sach extends Model
     {
         return $this->belongsTo(NhaXuatBan::class, 'nha_xuat_ban_id');
     }
+    public function chiTietDonHang()
+    {
+        return $this->hasMany(CTDonHang::class, 'sach_id');
+    }
 }

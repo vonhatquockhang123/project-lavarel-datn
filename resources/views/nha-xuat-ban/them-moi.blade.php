@@ -1,9 +1,8 @@
 @extends('layouts')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
+<div class="card" style="margin-top: 50px;">
+    <div class="card-body">
             <h3>Thêm mới nhà xuất bản</h3>
             <form method="POST" action="{{ route('nha-xuat-ban.xu-ly-them-moi') }}" enctype="multipart/form-data">
                 @csrf

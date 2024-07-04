@@ -36,9 +36,15 @@
             </a>
          </li>
          <li class="nav-item">
+            <a class="nav-link" href="{{route('don-hang.danh-sach')}}">
+               <span data-feather="users" class="align-text-bottom"></span>
+               Quản lý Đơn Hàng
+            </a>
+         </li>
+         <li class="nav-item">
             <a class="nav-link" href="{{route('loai-sach.danh-sach')}}">
                <span data-feather="box" class="align-text-bottom"></span>
-               Quản lý loại sách
+               Quản lý Loại Sách
             </a>
          </li>
          <li class="nav-item">
@@ -70,6 +76,12 @@
             <a class="nav-link" href="{{route('phieu-nhap-hang.danh-sach')}}">
                <span data-feather="users" class="align-text-bottom"></span>
                Phiếu Nhập Hàng
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="{{route('khu-vuc-van-chuyen.danh-sach')}}">
+               <span data-feather="users" class="align-text-bottom"></span>
+               Quản lý Khu Vực Vận Chuyển
             </a>
          </li>
          <li>

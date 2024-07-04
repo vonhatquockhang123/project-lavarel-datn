@@ -4,6 +4,7 @@
 
 <div class="card" style="margin-top: 50px;">
     <div class="card-body">
+    <h2 style="margin-bottom: 20px;">CẬP NHẬT NHÀ XUẤT BẢN</h2>
         <form action="{{ route('nha-xuat-ban.cap-nhat', $nhaXuatBan->id) }}" method="POST">
             @csrf
             <div class="mb-3">

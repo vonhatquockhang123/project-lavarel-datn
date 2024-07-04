@@ -10,6 +10,8 @@ use App\Http\Controllers\SachController;
 use App\Http\Controllers\TacGiaController;
 use App\Http\Controllers\PhieuNhapHangController;
 use App\Http\Controllers\DanhGiaController;
+use App\Http\Controllers\DonHangController;
+use App\Http\Controllers\KhuVucVanChuyenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,7 +44,7 @@ Route::get('/combo/them-moi', [ComboController::class, 'ThemMoi'])->name('combo.
 Route::post('/combo/them-moi', [ComboController::class, 'XuLyThemMoi'])->name('combo.xu-ly-them-moi');
 Route::get('/combo/cap-nhat/{id}', [ComboController::class, 'CapNhat'])->name('combo.cap-nhat');
 Route::post('/combo/cap-nhat/{id}', [ComboController::class, 'XuLyCapNhat'])->name('combo.xu-ly-cap-nhat');
-Route::get('/combo/xoa/{id}', [ComboController::class, 'Xoa'])->name('combo.xoa');
+Route::delete('/combo/xoa/{id}', [ComboController::class, 'Xoa'])->name('combo.xoa');
 Route::get('/combo/tim-kiem',[ComboController::class,'timKiem'])->name('combo.tim-kiem');
 //Khách hàng
 Route::get('/khach-hang/them-moi', [KhachHangController::class, 'themMoi'])->name('khach-hang.them-moi');
@@ -117,7 +119,23 @@ Route::prefix('danh-gia-sach')->group(function () {
     Route::put('/cap-nhat/{id}', [DanhGiaController::class, 'xuLyCapNhatDanhGiaSach'])->name('danh-gia-sach.xu-ly-cap-nhat');
     Route::delete('/xoa/{id}', [DanhGiaController::class, 'xoaDanhGiaSach'])->name('danh-gia-sach.xoa');
 });
-
+//Đơn hàng
+Route::prefix('don-hang')->group(function(){
+    Route::get('/don-hang/danh-sach',[DonHangController::class,'danhSach'])->name('don-hang.danh-sach');
+    Route::get('/them-moi', [DonHangController::class, 'themMoi'])->name('don-hang.them-moi');
+    Route::post('/them-moi', [DonHangController::class, 'xuLyThemMoi'])->name('don-hang.xu-ly-them-moi');
+    Route::get('/chi-tiet/{id}', [DonHangController::class, 'chiTiet'])->name('don-hang.chi-tiet');
+    Route::get('/xoa/{id}', [DonHangController::class, 'xoa'])->name('don-hang.xoa');
+    Route::post('chi-tiet/store', [DonHangController::class, 'store'])->name('don-hang.chi-tiet.store');
+    Route::delete('/don-hang/chi-tiet/{id}', [DonHangController::class, 'xoaChiTiet'])->name('don-hang.chi-tiet.xoa');
+    Route::get('/don-hang/tim-kiem', [DonHangController::class, 'timKiem'])->name('don-hang.tim-kiem');
+});
+//Khu Vực Vận Chuyển
+Route::prefix('khu-vuc-van-chuyen')->group(function(){
+    Route::get('/danh-sach',[KhuVucVanChuyenController::class,'danhSach'])->name('khu-vuc-van-chuyen.danh-sach');
+    Route::get('/them-moi',[KhuVucVanChuyenController::class,'themMoi'])->name('khu-vuc-van-chuyen.them-moi');
+    Route::post('/them-moi',[KhuVucVanChuyenController::class,'xuLyThemMoi'])->name('khu-vuc-van-chuyen.xu-ly-them-moi');
+});
 
 
 
